@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/provision_vars.yml
+
+  roles:
+    - geerlingguy.apache
+    - geerlingguy.repo-epel
+    - geerlingguy.repo-remi
+    - geerlingguy.php
+    - geerlingguy.composer
+    - geerlingguy.mailhog
+    - php
+    - httpd
