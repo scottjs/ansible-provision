@@ -1,9 +1,9 @@
 {
   "name": "ansible-provision",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "bin": {
-    "setup-provision-config": "setup-provision-config.js"
+    "setup-provision-config": "bin/setup-provision-config.js"
   },
   "scripts": {
 	"postinstall": "node bin/postinstall.js"
