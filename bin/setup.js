@@ -106,6 +106,11 @@ inquirer.prompt(environment).then(function(args) {
 			src: '/provision/provision.yml',
 			dest: '/provision/provision.yml',
 			replacements: []
+		},
+		{
+			src: '/ansible.cfg',
+			dest: '/ansible.cfg',
+			replacements: []
 		}
 	];
 
