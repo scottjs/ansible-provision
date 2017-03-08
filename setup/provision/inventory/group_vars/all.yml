@@ -24,14 +24,14 @@ apache_vhosts_ssl:
       </FilesMatch>
 
 # Environment specific MySQL config
-mysql_root_password: vagrant
+mysql_root_password: $MYSQL_ROOT_PASSWORD$
 mysql_databases:
-  - name: vagrant
+  - name: $MYSQL_DATABASE$
 mysql_users:
-  - name: vagrant
+  - name: $MYSQL_USER_NAME$
     host: "%"
-    password: vagrant
-    priv: "vagrant.*:ALL"
+    password: $MYSQL_USER_PASS$
+    priv: "$MYSQL_USER_NAME$.*:ALL"
 
 # Force root password update
 # mysql_root_password_update: yes
