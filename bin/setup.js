@@ -6,7 +6,7 @@ var path = require('path');
 var generator = require('generate-password');
 
 var src = path.join(__dirname, '..', 'setup');
-var dest = './ansible';
+var dest = '.';
 
 var files = [];
 var environment = [
@@ -25,7 +25,7 @@ inquirer.prompt(environment).then(function(args) {
 	files = [
 		{
 			src: '/provision/inventory/inventory',
-			dest: '/provision/' + args.environment + '/inventory',
+			dest: '/ansible/provision/' + args.environment + '/inventory',
 			replacements: [
 				{
 					name: 'host',
@@ -55,7 +55,7 @@ inquirer.prompt(environment).then(function(args) {
 		},
 		{
 			src: '/provision/inventory/group_vars/all.yml',
-			dest: '/provision/' + args.environment + '/group_vars/all.yml',
+			dest: '/ansible/provision/' + args.environment + '/group_vars/all.yml',
 			replacements: [
 				{
 					name: 'server_name',
@@ -103,7 +103,7 @@ inquirer.prompt(environment).then(function(args) {
 		},
 		{
 			src: '/provision/vars/provision_vars.yml',
-			dest: '/provision/vars/provision_vars.yml',
+			dest: '/ansible/provision/vars/provision_vars.yml',
 			replacements: [
 				{
 					name: 'php_version',
@@ -119,17 +119,17 @@ inquirer.prompt(environment).then(function(args) {
 		},
 		{
 			src: '/provision/dbservers.yml',
-			dest: '/provision/dbservers.yml',
+			dest: '/ansible/provision/dbservers.yml',
 			replacements: []
 		},
 		{
 			src: '/provision/webservers.yml',
-			dest: '/provision/webservers.yml',
+			dest: '/ansible/provision/webservers.yml',
 			replacements: []
 		},
 		{
 			src: '/provision/provision.yml',
-			dest: '/provision/provision.yml',
+			dest: '/ansible/provision/provision.yml',
 			replacements: []
 		},
 		{
