@@ -3,6 +3,7 @@ var chalk = require('chalk');
 var inquirer = require('inquirer');
 var fs = require('fs-extra');
 var path = require('path');
+var generator = require('generate-password');
 
 var src = path.join(__dirname, '..', 'setup');
 var dest = './ansible';
@@ -73,6 +74,30 @@ inquirer.prompt(environment).then(function(args) {
 					type: 'input',
 					message: 'Document root:',
 					default: '/var/www/myproject/public'
+				},
+				{
+					name: 'mysql_root_password',
+					type: 'input',
+					message: 'MySQL root password:',
+					default: 'leave blank for random'
+				},
+				{
+					name: 'mysql_database',
+					type: 'input',
+					message: 'MySQL database name:',
+					default: 'vagrant'
+				},
+				{
+					name: 'mysql_user_name',
+					type: 'input',
+					message: 'MySQL user name:',
+					default: 'vagrant'
+				},
+				{
+					name: 'mysql_user_pass',
+					type: 'input',
+					message: 'MySQL user password:',
+					default: 'leave blank for random'
 				}
 			]
 		},
@@ -156,7 +181,16 @@ function fileReplace(args, file) {
 			var replacement = replacements[i];
 			var regex = new RegExp('\\$' + replacement.toUpperCase() + '\\$', 'g');
 
-			result = result.replace(regex, args[replacement]);
+			var replace = args[replacement];
+
+			if(replace == 'leave blank for random') {
+				replace = generator.generate({
+					length: 16,
+					numbers: true
+				});
+			}
+
+			result = result.replace(regex, replace);
 		}
 
 		fs.writeFile(dest + file.dest, result, 'utf8', function (err) {
