@@ -2,7 +2,7 @@
 # Environment specific apache config
 apache_vhosts:
   - servername: "$SERVER_NAME$"
-    documentroot: "$DOC_ROOT$"
+    documentroot: "$DOCUMENT_ROOT$"
     projectroot: "$PROJECT_PATH$"
     extra_parameters: |
       <FilesMatch "\.php$">
@@ -13,7 +13,7 @@ apache_vhosts:
 # Environment specific apache SSL config
 apache_vhosts_ssl:
   - servername: "$SERVER_NAME$"
-    documentroot: "$DOC_ROOT$"
+    documentroot: "$DOCUMENT_ROOT$"
     projectroot: "$PROJECT_PATH$"
     certificate_file: "/etc/pki/tls/certs/localhost.crt"
     certificate_key_file: "/etc/pki/tls/private/localhost.key"

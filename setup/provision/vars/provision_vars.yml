@@ -1,6 +1,6 @@
 ---
 # Global PHP config
-php_enablerepo: "remi,remi-php71"
+php_enablerepo: "remi,remi-$PHP_VERSION$"
 php_memory_limit: "128M"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
