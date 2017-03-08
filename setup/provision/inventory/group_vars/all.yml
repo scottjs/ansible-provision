@@ -1,0 +1,37 @@
+---
+# Environment specific apache config
+apache_vhosts:
+  - servername: "$SERVER_NAME$"
+    documentroot: "$DOCUMENT_ROOT$"
+    projectroot: "$PROJECT_PATH$"
+    extra_parameters: |
+      <FilesMatch "\.php$">
+        Require all granted
+        SetHandler proxy:fcgi://127.0.0.1:9000
+      </FilesMatch>
+
+# Environment specific apache SSL config
+apache_vhosts_ssl:
+  - servername: "$SERVER_NAME$"
+    documentroot: "$DOCUMENT_ROOT$"
+    projectroot: "$PROJECT_PATH$"
+    certificate_file: "/etc/pki/tls/certs/localhost.crt"
+    certificate_key_file: "/etc/pki/tls/private/localhost.key"
+    extra_parameters: |
+      <FilesMatch "\.php$">
+        Require all granted
+        SetHandler proxy:fcgi://127.0.0.1:9000
+      </FilesMatch>
+
+# Environment specific MySQL config
+mysql_root_password: vagrant
+mysql_databases:
+  - name: vagrant
+mysql_users:
+  - name: vagrant
+    host: "%"
+    password: vagrant
+    priv: "vagrant.*:ALL"
+
+# Force root password update
+# mysql_root_password_update: yes
