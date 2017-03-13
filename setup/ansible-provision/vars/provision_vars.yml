@@ -22,7 +22,6 @@ php_packages:
   - php-xml
   - php-bcmath
   - php-mysqlnd
-  - php-soap
 
 # Global MySQL config
 mysql_daemon: mysql
