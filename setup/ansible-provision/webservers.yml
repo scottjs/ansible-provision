@@ -10,7 +10,7 @@
     - geerlingguy.repo-remi
     - geerlingguy.php
     - geerlingguy.composer
-    - geerlingguy.mailhog
+    - { role: geerlingguy.mailhog, when: install_mailhog }
     - configure-php
     - configure-httpd
-    - configure-mailhog
+    - { role: configure-mailhog, when: install_mailhog }

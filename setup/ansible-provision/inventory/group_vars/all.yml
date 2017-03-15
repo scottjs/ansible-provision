@@ -1,6 +1,9 @@
 ---
 # Environment specific config
 
+# configure-mailhog overrides
+install_mailhog: false
+
 # geerlingguy.apache overrides
 apache_vhosts:
   - servername: "$SERVER_NAME$"
