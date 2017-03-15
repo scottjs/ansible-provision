@@ -11,5 +11,6 @@
     - geerlingguy.php
     - geerlingguy.composer
     - geerlingguy.mailhog
-    - php
-    - httpd
+    - configure-php
+    - configure-httpd
+    - configure-mailhog
