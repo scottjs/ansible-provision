@@ -1,5 +1,5 @@
 ---
-- hosts: dbservers
+- hosts: all
   become: yes
   vars_files:
     - vars/provision_vars.yml
