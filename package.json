@@ -1,6 +1,6 @@
 {
   "name": "ansible-provision",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "",
   "bin": {
     "setup-provision-script": "bin/setup.js"
