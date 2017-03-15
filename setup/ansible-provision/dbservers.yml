@@ -5,5 +5,5 @@
     - vars/provision_vars.yml
 
   roles:
-    - mysql
+    - configure-mariadb
     - geerlingguy.mysql

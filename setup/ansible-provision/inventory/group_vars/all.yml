@@ -1,5 +1,7 @@
 ---
-# Environment specific apache config
+# Environment specific config
+
+# geerlingguy.apache overrides
 apache_vhosts:
   - servername: "$SERVER_NAME$"
     documentroot: "$DOCUMENT_ROOT$"
@@ -10,7 +12,6 @@ apache_vhosts:
         SetHandler proxy:fcgi://127.0.0.1:9000
       </FilesMatch>
 
-# Environment specific apache SSL config
 apache_vhosts_ssl:
   - servername: "$SERVER_NAME$"
     documentroot: "$DOCUMENT_ROOT$"
@@ -23,7 +24,7 @@ apache_vhosts_ssl:
         SetHandler proxy:fcgi://127.0.0.1:9000
       </FilesMatch>
 
-# Environment specific MySQL config
+# geerlingguy.mysql overrides
 mysql_root_password: $MYSQL_ROOT_PASSWORD$
 mysql_databases:
   - name: $MYSQL_DATABASE$
@@ -33,5 +34,4 @@ mysql_users:
     password: $MYSQL_USER_PASS$
     priv: "$MYSQL_USER_NAME$.*:ALL"
 
-# Force root password update
 # mysql_root_password_update: yes
