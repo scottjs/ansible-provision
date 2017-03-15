@@ -1,1 +1,8 @@
+[local]
 $HOST$ ansible_port=$PORT$ ansible_ssh_user=$USER$ ansible_ssh_private_key_file=$KEY$
+
+[webservers:children]
+local
+
+[dbservers:children]
+local
