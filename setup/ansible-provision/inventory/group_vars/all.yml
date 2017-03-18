@@ -1,10 +1,10 @@
 ---
 # Environment specific config
 
-# configure-mailhog overrides
+# Environment options
 install_mailhog: false
 
-# geerlingguy.apache overrides
+# Apache vhosts
 apache_vhosts:
   - servername: "$SERVER_NAME$"
     documentroot: "$DOCUMENT_ROOT$"
@@ -15,6 +15,7 @@ apache_vhosts:
         SetHandler proxy:fcgi://127.0.0.1:9000
       </FilesMatch>
 
+# Apache SSL vhosts
 apache_vhosts_ssl:
   - servername: "$SERVER_NAME$"
     documentroot: "$DOCUMENT_ROOT$"
@@ -27,7 +28,7 @@ apache_vhosts_ssl:
         SetHandler proxy:fcgi://127.0.0.1:9000
       </FilesMatch>
 
-# geerlingguy.mysql overrides
+# MySQL options
 mysql_root_password: $MYSQL_ROOT_PASSWORD$
 mysql_databases:
   - name: $MYSQL_DATABASE$
