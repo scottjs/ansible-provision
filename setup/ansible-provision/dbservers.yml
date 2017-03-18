@@ -5,5 +5,13 @@
     - vars/provision_vars.yml
 
   roles:
+    # Common server setup
+    - common
+    - configure-ssh
+    - configure-ntpd
+
+    # Additional configuration
     - configure-mariadb
+
+    # Galaxy roles
     - geerlingguy.mysql

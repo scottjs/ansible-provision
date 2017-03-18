@@ -1,7 +1,7 @@
 ---
 # Server configuration used accross all environments
 
-# geerlingguy.php overrides
+# Global PHP options
 php_enablerepo: "remi,remi-$PHP_VERSION$"
 php_memory_limit: "128M"
 php_max_execution_time: "90"
@@ -25,12 +25,12 @@ php_packages:
   - php-bcmath
   - php-mysqlnd
 
-# geerlingguy.mysql overrides
+# Global MySQL options
 mysql_daemon: mysql
 mysql_log_error: /var/lib/mysql/mariadb.log
 mysql_pid_file: /var/lib/mysql/mariadb.pid
 
-# common packages overrides
+# Common server packages to install
 common_packages:
   - git
   - nano
@@ -43,5 +43,5 @@ common_packages:
   - ed
   - bind-utils
 
-# configure-mariadb overrides
+# Add MariaDB 10 repo
 enable_mariadb10: true

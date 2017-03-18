@@ -5,12 +5,20 @@
     - vars/provision_vars.yml
 
   roles:
+    # Common server setup
+    - common
+    - configure-ssh
+    - configure-ntpd
+
+    # Galaxy roles
     - geerlingguy.apache
     - geerlingguy.repo-epel
     - geerlingguy.repo-remi
     - geerlingguy.php
     - geerlingguy.composer
     - { role: geerlingguy.mailhog, when: install_mailhog }
+
+    # Additional configuration
     - configure-php
     - configure-httpd
-    - { role: configure-mailhog, when: install_mailhog }
+    - configure-mailhog
