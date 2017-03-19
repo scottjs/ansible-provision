@@ -1,6 +1,6 @@
 {
   "name": "ansible-provision",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "",
   "bin": {
     "setup-provision-script": "bin/setup.js"
@@ -9,7 +9,7 @@
     "postinstall": "node bin/postinstall.js"
   },
   "dependencies": {
-    "ansible-roles": "1.6.0",
+    "ansible-roles": "1.6.1",
     "chalk": "^1.1.3",
     "fs-extra": "^2.0.0",
     "generate-password": "^1.3.0",
