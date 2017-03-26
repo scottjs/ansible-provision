@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - ../vars/provision_vars.yml
+
+  roles:
+    # Galaxy roles
+    - geerlingguy.repo-epel
+    - geerlingguy.repo-remi
+    - geerlingguy.apache
+    - geerlingguy.php
+    - geerlingguy.composer
+
+    # Additional configuration
+    - selinux
+    - apache
+
+- include: mailhog.yml
+  when: install_mailhog

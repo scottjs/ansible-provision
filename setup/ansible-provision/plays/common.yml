@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - ../vars/provision_vars.yml
+
+  roles:
+    # Common server setup
+    - packages
+    - ntp
+    - users
+    - ssh

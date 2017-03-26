@@ -1,14 +1,33 @@
 ---
 # Server configuration used accross all environments
 
+# User to be used for deployment
+deploy_user: deploy
+
+# Common server packages to install
+packages:
+  - git
+  - nano
+  - curl
+  - wget
+  - vim
+  - man
+  - unzip
+  - ed
+  - bind-utils
+  - mysql
+  - net-tools
+  - libselinux-python
+
 # Global PHP options
 php_enablerepo: "remi,remi-$PHP_VERSION$"
-php_memory_limit: "128M"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
+php_post_max_size: "256M"
 php_enable_php_fpm: true
 php_opcache_enable: false
 php_enable_apc: false
+php_short_open_tag: true
 php_packages:
   - php
   - php-fpm
@@ -29,19 +48,3 @@ php_packages:
 mysql_daemon: mysql
 mysql_log_error: /var/lib/mysql/mariadb.log
 mysql_pid_file: /var/lib/mysql/mariadb.pid
-
-# Common server packages to install
-common_packages:
-  - git
-  - nano
-  - curl
-  - wget
-  - vim
-  - man
-  - unzip
-  - ntp
-  - ed
-  - bind-utils
-
-# Add MariaDB 10 repo
-enable_mariadb10: true

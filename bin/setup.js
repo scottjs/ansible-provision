@@ -21,7 +21,7 @@ var environment = [
 		name: 'environment',
 		type: 'input',
 		message: 'Environment:',
-		default: 'development'
+		default: 'vagrant'
 	}
 ];
 
@@ -36,8 +36,8 @@ inquirer.prompt(environment).then(function(args) {
 				{
 					name: 'host',
 					type: 'input',
-					message: 'Server IP Address:',
-					default: '127.0.0.1'
+					message: 'Server IP or host:',
+					default: 'www.example.dev'
 				},
 				{
 					name: 'port',
@@ -49,13 +49,13 @@ inquirer.prompt(environment).then(function(args) {
 					name: 'user',
 					type: 'input',
 					message: 'Server SSH user:',
-					default: 'provision'
+					default: 'vagrant'
 				},
 				{
 					name: 'key',
 					type: 'input',
 					message: 'Server SSH private key:',
-					default: '~/.ssh/id_rsa'
+					default: '.vagrant/machines/default/virtualbox/private_key'
 				}
 			]
 		},
@@ -73,13 +73,13 @@ inquirer.prompt(environment).then(function(args) {
 					name: 'project_path',
 					type: 'input',
 					message: 'Project path:',
-					default: '/var/www/myproject'
+					default: '/var/www/vagrant'
 				},
 				{
 					name: 'document_root',
 					type: 'input',
 					message: 'Document root:',
-					default: '/var/www/myproject/public'
+					default: '/var/www/vagrant/public'
 				},
 				{
 					name: 'mysql_root_password',
@@ -117,6 +117,7 @@ inquirer.prompt(environment).then(function(args) {
 					message: 'PHP version:',
 					choices: [
 						'php71',
+						'php70',
 						'php56'
 					],
 					default: 'php71'
@@ -124,23 +125,38 @@ inquirer.prompt(environment).then(function(args) {
 			]
 		},
 		{
-			src: '/ansible-provision/dbservers.yml',
-			dest: '/ansible-provision/dbservers.yml',
-			replacements: []
-		},
-		{
-			src: '/ansible-provision/webservers.yml',
-			dest: '/ansible-provision/webservers.yml',
-			replacements: []
-		},
-		{
 			src: '/ansible-provision/provision.yml',
 			dest: '/ansible-provision/provision.yml',
 			replacements: []
 		},
 		{
+			src: '/ansible-provision/plays/dbservers.yml',
+			dest: '/ansible-provision/plays/dbservers.yml',
+			replacements: []
+		},
+		{
+			src: '/ansible-provision/plays/webservers.yml',
+			dest: '/ansible-provision/plays/webservers.yml',
+			replacements: []
+		},
+		{
+			src: '/ansible-provision/plays/common.yml',
+			dest: '/ansible-provision/plays/common.yml',
+			replacements: []
+		},
+		{
+			src: '/ansible-provision/plays/mailhog.yml',
+			dest: '/ansible-provision/plays/mailhog.yml',
+			replacements: []
+		},
+		{
 			src: '/ansible.cfg',
 			dest: '/ansible.cfg',
+			replacements: []
+		},
+		{
+			src: '/Vagrantfile-sample',
+			dest: '/Vagrantfile-sample',
 			replacements: []
 		}
 	];
