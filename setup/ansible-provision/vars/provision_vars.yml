@@ -18,9 +18,6 @@ packages:
   - ed
   - bind-utils
   - mysql
-  - epel-release
-  - nodejs
-  - npm
 
 # Global PHP options
 php_enablerepo: "remi,remi-$PHP_VERSION$"
