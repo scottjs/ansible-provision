@@ -6,6 +6,8 @@ deploy_user: deploy
 
 # Common server packages to install
 packages:
+  - net-tools
+  - libselinux-python
   - git
   - nano
   - curl
@@ -16,9 +18,9 @@ packages:
   - ed
   - bind-utils
   - mysql
+  - epel-release
   - nodejs
-  - net-tools
-  - libselinux-python
+  - npm
 
 # Global PHP options
 php_enablerepo: "remi,remi-$PHP_VERSION$"
