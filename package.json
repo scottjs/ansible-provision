@@ -1,12 +1,12 @@
 {
   "name": "ansible-provision",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "",
   "bin": {
     "setup-provision": "bin/setup.js"
   },
   "dependencies": {
-    "ansible-roles": "^2.1.1",
+    "ansible-roles": "^2.1.2",
     "chalk": "^1.1.3",
     "fs-extra": "^2.0.0",
     "generate-password": "^1.3.0",
