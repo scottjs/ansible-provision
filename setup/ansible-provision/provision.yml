@@ -2,5 +2,6 @@
 - hosts: all
   become: yes
 
-- include: webservers.yml
-- include: dbservers.yml
+- include: plays/common.yml
+- include: plays/webservers.yml
+- include: plays/dbservers.yml

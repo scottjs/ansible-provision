@@ -1,0 +1,66 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+ENV['ANSIBLE_CONFIG'] = "./ansible.cfg"
+
+Vagrant.configure(2) do |config|
+
+	#
+	# Centos
+	#
+	config.vm.box = "centos/7"
+
+	#
+	# Network
+	#
+	config.vm.network "private_network", ip: "192.168.56.100"
+
+	#
+	# Synced folder
+	#
+	# config.vm.synced_folder ".", "/var/www/vagrant", type: "nfs"
+	# config.vm.synced_folder ".", "/var/www/vagrant", mount_options: ["dmode=777,fmode=777"]
+
+	#
+	# Debug
+	#
+	# config.vm.provider "virtualbox" do |v|
+	#   v.gui = true
+	# end
+
+	#
+	# Remove default options
+	#
+	config.vm.synced_folder ".", "/home/vagrant/sync", :disabled => true
+	config.vm.synced_folder ".", "/vagrant", :disabled => true
+
+	#
+	# Virtual machine config
+	#
+	config.vm.define "default" do |default|
+		default.vm.hostname = "centos7"
+	end
+
+	#
+	# VirtualBox config
+	#
+	config.vm.provider "virtualbox" do |virtualbox|
+		virtualbox.memory = 1024
+		virtualbox.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
+	end
+
+	#
+	# Run Ansible from the Vagrant Host
+	#
+	config.vm.provision "ansible" do |ansible|
+		ansible.inventory_path = "./ansible-provision/vagrant/inventory"
+		ansible.playbook = "./ansible-provision/provision.yml"
+		ansible.limit = "all"
+	end
+
+	#
+	# Additional scripts
+	#
+	# config.vm.provision :shell, run: "always", path: "ansible-provision/scripts/vagrant.sh"
+
+end
