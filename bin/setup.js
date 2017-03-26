@@ -73,13 +73,13 @@ inquirer.prompt(environment).then(function(args) {
 					name: 'project_path',
 					type: 'input',
 					message: 'Project path:',
-					default: '/var/www/vagrant'
+					default: '/var/www/html'
 				},
 				{
 					name: 'document_root',
 					type: 'input',
 					message: 'Document root:',
-					default: '/var/www/vagrant/public'
+					default: '/var/www/html/public'
 				},
 				{
 					name: 'mysql_root_password',
