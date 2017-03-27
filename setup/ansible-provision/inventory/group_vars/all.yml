@@ -4,6 +4,7 @@
 # Environment options
 install_mailhog: false
 apache_vhost_permissions: false
+apache_sendfile_option: "off"
 
 # Apache vhosts
 apache_vhosts:

@@ -37,7 +37,7 @@ inquirer.prompt(environment).then(function(args) {
 					name: 'host',
 					type: 'input',
 					message: 'Server IP or host:',
-					default: 'www.example.dev'
+					default: 'example.dev'
 				},
 				{
 					name: 'port',
@@ -91,13 +91,13 @@ inquirer.prompt(environment).then(function(args) {
 					name: 'mysql_database',
 					type: 'input',
 					message: 'MySQL database name:',
-					default: 'vagrant'
+					default: 'app'
 				},
 				{
 					name: 'mysql_user_name',
 					type: 'input',
 					message: 'MySQL user name:',
-					default: 'vagrant'
+					default: 'app'
 				},
 				{
 					name: 'mysql_user_pass',
