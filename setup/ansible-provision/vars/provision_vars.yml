@@ -21,6 +21,7 @@ packages:
 
 # Global PHP options
 php_enablerepo: "remi,remi-$PHP_VERSION$"
+php_date_timezone: "Europe/London"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
 php_post_max_size: "256M"
