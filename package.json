@@ -3,7 +3,8 @@
   "version": "2.1.6",
   "description": "",
   "bin": {
-    "setup-provision": "bin/setup.js"
+    "setup-provision": "bin/setup.js",
+    "provision": "bin/provision.js"
   },
   "dependencies": {
     "ansible-roles": "^2.1.5",

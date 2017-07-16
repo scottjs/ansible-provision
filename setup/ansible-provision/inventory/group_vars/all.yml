@@ -1,10 +1,25 @@
 ---
 # Environment specific config
 
-# Environment options
+# Install Mailhog, useful for local development
 install_mailhog: false
+
+# If the deploy_user variable is set, attempt to set ownership of apache directories to this user
 apache_vhost_permissions: false
+
+# Turn this off for Vagrant, turn it on for anything else
 apache_sendfile_option: "off"
+
+# Incoming IP tables firewall rules
+iptables_incoming_tcp_ports:
+  - 22
+  - 80
+  - 443
+
+# Extra rules
+# iptables_extra_rules:
+#   - "-A INPUT -p tcp -s 0.0.0.0 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT"
+#   - "-A OUTPUT -p tcp -s 0.0.0.0 --sport 22 -m state --state ESTABLISHED -j ACCEPT"
 
 # Apache vhosts
 apache_vhosts:

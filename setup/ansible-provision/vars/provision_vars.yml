@@ -20,6 +20,7 @@ packages:
   - mysql
 
 # Global PHP options
+php_date_timezone: "UTC"
 php_enablerepo: "remi,remi-$PHP_VERSION$"
 php_date_timezone: "Europe/London"
 php_max_execution_time: "90"
